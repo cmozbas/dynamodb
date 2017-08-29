@@ -1,0 +1,38 @@
+﻿<p>Create Table</p>
+
+<div style="margin-left:50px">
+    <div>
+        <label>Table name</label>
+        <input id="tableName" type="text" />
+    </div>
+
+    <br />
+    <div>
+        <button class="btn btn-primary" onclick="createTable()">Create</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function createTable() {
+        var tableName = $('#tableName').val();
+
+        if (tableName) {
+            $.ajax({
+                method: "POST",
+                url: '@Url.Action("CreateTable", "Dynamo")',
+                data: { tableName: tableName }
+            })
+            .done(function (msg) {
+                console.log("Success");
+            })
+            .error(function (a, b, c) {
+                console.log("Error");
+            });
+        }
+    }
+
+</script>
+
+
+

@@ -1,0 +1,17 @@
+﻿
+@model List<TableModel>
+
+@if (Model != null && Model.Any())
+{
+    <table>
+        @foreach (var table in Model)
+        {
+            <tr>
+                <td>@table.TableName</td>
+            </tr>
+        }
+    </table>
+}
+else{
+    <p>No tables</p>
+}
